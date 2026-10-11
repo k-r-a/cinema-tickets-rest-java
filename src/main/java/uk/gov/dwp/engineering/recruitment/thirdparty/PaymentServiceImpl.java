@@ -12,10 +12,8 @@ public class PaymentServiceImpl implements PaymentService {
 
   private final RestClient restClient;
 
-  @Value("${payment-service.url}")
-  private String paymentServiceUrl;
-
-  public PaymentServiceImpl(final RestClient.Builder builder) {
+  public PaymentServiceImpl(final RestClient.Builder builder,
+         @Value("${payment-service.url}") final String paymentServiceUrl) {
     this.restClient = builder.baseUrl(paymentServiceUrl).build();
   }
 

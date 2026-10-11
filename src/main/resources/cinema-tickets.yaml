@@ -82,10 +82,10 @@ components:
       properties:
         type:
           $ref: "#/components/schemas/TicketType"
-        count:
+        ticketCount:
           type: integer
-          format: int64
-          minimum: 0
+          format: int32
+          minimum: 25
           nullable: false
           examples: [0, 1, 2]
 
@@ -99,14 +99,15 @@ components:
           minimum: 1
           nullable: false
           examples: [1234, 6789]
-        tickets:
+        ticketRequests:
           type: array
           nullable: false
+          minItems: 1
           items:
             $ref: "#/components/schemas/TicketRequest"
       required:
         - accountId
-        - tickets
+        - ticketsRequests
 
     BookingConfirmation:
       type: object

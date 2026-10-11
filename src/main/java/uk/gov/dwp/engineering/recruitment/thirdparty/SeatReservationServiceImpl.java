@@ -11,10 +11,8 @@ public class SeatReservationServiceImpl implements SeatReservationService {
 
   private final RestClient restClient;
 
-  @Value("${reservation-service.url}")
-  private String reservationServiceUrl;
-
-  public SeatReservationServiceImpl(final RestClient.Builder builder) {
+  public SeatReservationServiceImpl(final RestClient.Builder builder,
+         @Value("${reservation-service.url}") final String reservationServiceUrl) {
     this.restClient = builder.baseUrl(reservationServiceUrl).build();
   }
 
