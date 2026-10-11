@@ -50,6 +50,9 @@ remains for backward compatibility.
 - `RestExceptionHandler` now maps `InvalidBookingException` to `400 Bad Request`.
 - `cinema-tickets.yaml` request field names were corrected to the ones the existing domain records actually 
 serialise (`ticketRequests`, `ticketCount`).
+- `PaymentServiceImpl` and `SeatReservationServiceImpl` now receive their service URLs through construction injection
+rather than @Value fields, so the base URL is set when the client is built
+(field injection happens after the constructor runs, which left it null).
 
 ## API documentation
 With the app running(`mvn spring-boot:run`), Swagger UI is at
